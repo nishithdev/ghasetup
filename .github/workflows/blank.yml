@@ -35,5 +35,5 @@ jobs:
           curl -H "Content-Type: application/json" -d '
           {
             "text": "Build is complete for ${{ github.event.repository.name }}"             
-          }' ${{ WEBHOOK_URL }}
+          }' ${{ secrets.WEBHOOK_URL }}
           
