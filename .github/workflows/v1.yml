@@ -48,7 +48,6 @@ jobs:
       - name: Workflow
         run: |
           echo "The workflow is: ${{github.workflow}}"
-          exit 1
  stage_5:
   runs-on: ubuntu-latest
   needs: stage_4
