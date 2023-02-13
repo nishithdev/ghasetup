@@ -1,5 +1,4 @@
 name: Get User who started workflow
-run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 on:
   push:
@@ -13,4 +12,4 @@ jobs:
   steps:
       - name: Print User who started workflow
         run: |
-          echo "The user who started this workflow is: ${{env.GITHUB_ACTOR}}"
+          echo "The user who started this workflow is: ${{github.actor}"
