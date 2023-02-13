@@ -1,0 +1,17 @@
+name: Get User who started workflow
+run-name: master workflow
+
+on:
+  push:
+    branches:
+      - v1
+      - main
+
+jobs:
+  
+ run_code:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Print User who started workflow
+        run: |
+          echo "The user who started this workflow is: ${{github.actor}}"
