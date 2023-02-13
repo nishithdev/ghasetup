@@ -1,4 +1,5 @@
 name: Get User who started workflow
+run-name: v1 workflow
 
 on:
   push:
