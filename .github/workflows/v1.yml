@@ -24,7 +24,7 @@ jobs:
   steps:
       - name: Print User who started workflow
         run: |
-          echo "The user who started this workflow is: ${{github.workflow}}"
+          echo "The workflow is: ${{github.workflow}}"
       - name: Sleep for 5 seconds
         run: sleep 5s
         shell: bash
@@ -34,7 +34,7 @@ jobs:
   steps:
       - name: Workflow
         run: |
-          echo "The branch is: ${{GITHUB_REF##*/}}"
+          echo "The branch is: ${{ github.head_ref }}"
       - name: Sleep for 5 seconds
         run: sleep 5s
         shell: bash
@@ -57,7 +57,7 @@ jobs:
         shell: bash
       - name: Workflow
         run: |
-          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{GITHUB_REF##*/}}"
+          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.head_ref }}"
  notify_teams_failure:
   runs-on: ubuntu-latest
   needs: stage_5
