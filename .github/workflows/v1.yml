@@ -20,3 +20,13 @@ jobs:
       - name: Print User who started workflow
         run: |
           echo "The user who started this workflow is: ${{github.actor}}"
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+ sleep_start:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Workflow
+        run: |
+          echo "The workflow is: ${{github.workflow}}"
+
