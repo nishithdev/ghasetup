@@ -1,4 +1,4 @@
-name: Get User who started workflow
+name: Teams Notify
 run-name: v1 workflow
 
 on:
@@ -8,25 +8,40 @@ on:
 
 jobs:
   
- run_code:
+ stage_1:
   runs-on: ubuntu-latest
   steps:
       - name: Print User who started workflow
         run: |
           echo "The user who started this workflow is: ${{github.actor}}"
- run_codeagain:
+      - name: Sleep for 5 seconds
+        run: sleep 5s
+        shell: bash
+ stage_2:
   runs-on: ubuntu-latest
   steps:
       - name: Print User who started workflow
         run: |
-          echo "The user who started this workflow is: ${{github.actor}}"
+          echo "The user who started this workflow is: ${{github.workflow}}"
       - name: Sleep for 10 seconds
         run: sleep 10s
         shell: bash
- sleep_start:
+ stage_3:
   runs-on: ubuntu-latest
   steps:
       - name: Workflow
         run: |
           echo "The workflow is: ${{github.workflow}}"
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+ notify_teams:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+      - name: Workflow
+        run: |
+          echo "${{github.actor}} triggered workflow for ${{ github.event.repository.name }} "
 
