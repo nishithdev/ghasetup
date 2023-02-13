@@ -4,11 +4,15 @@ on:
   push:
     branches:
       - v1
+      - main
 
 env:
   USERNAME: ${{ env.GITHUB_ACTOR }}
-
-steps:
-  - name: Print User who started workflow
-    run: |
-      echo "The user who started this workflow is: ${USERNAME}"
+jobs:
+  
+ run_code:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Print User who started workflow
+        run: |
+          echo "The user who started this workflow is: ${USERNAME}"
