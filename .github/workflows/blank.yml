@@ -16,7 +16,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-out your repository under , so your job can access it
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
@@ -30,4 +30,7 @@ jobs:
           {
             "text": "Build is complete for ${{ github.event.repository.name }}"             
           }' ${{ secrets.WEBHOOK_URL }}
-          
+      
+      - name: Tag the user who triggered the workflow
+        run: |
+          echo "The user who triggered this workflow is: ${GITHUB_ACTOR} under the repo ${GITHUB_WORKSPACE} "
