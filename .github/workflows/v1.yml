@@ -12,4 +12,4 @@ jobs:
   steps:
       - name: Print User who started workflow
         run: |
-          echo "The user who started this workflow is: ${{github.actor}"
+          echo "The user who started this workflow is: ${{github.actor}}"
