@@ -22,7 +22,7 @@ jobs:
   runs-on: ubuntu-latest
   needs: stage_1
   steps:
-      - name: Print User who started workflow
+      - name: Print workflow name
         run: |
           echo "The workflow is: ${{github.workflow}}"
       - name: Sleep for 5 seconds
@@ -32,9 +32,9 @@ jobs:
   runs-on: ubuntu-latest
   needs: stage_2
   steps:
-      - name: Workflow
+      - name: Branch Name
         run: |
-          echo "The branch is: ${{ github.head_ref }}"
+          echo "The branch is: ${{ GITHUB_REF_NAME }}"
       - name: Sleep for 5 seconds
         run: sleep 5s
         shell: bash
