@@ -35,13 +35,35 @@ jobs:
       - name: Sleep for 10 seconds
         run: sleep 10s
         shell: bash
+ stage_4:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Workflow
+        run: |
+          echo "The workflow is: ${{github.workflow}}"
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
  notify_teams:
   runs-on: ubuntu-latest
+  if: success()
+  needs: stage_4
   steps:
       - name: Sleep for 10 seconds
         run: sleep 10s
         shell: bash
       - name: Workflow
         run: |
-          echo "${{github.actor}} triggered workflow for ${{ github.event.repository.name }} "
+          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} "
+          exit 1
+ stage_5:
+  runs-on: ubuntu-latest
+  if: failure()
+  steps:
+      - name: Workflow
+        run: |
+          echo "The workflow is: ${{github.workflow}}"
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
 
