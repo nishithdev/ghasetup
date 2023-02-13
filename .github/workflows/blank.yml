@@ -4,7 +4,9 @@ name: Notify Tester
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
+  push:
+    branches:
+      - v1
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -32,4 +34,4 @@ jobs:
       
       - name: Tag the user who triggered the workflow
         run: |
-          echo "The user who triggered this workflow is: ${{ GITHUB_ACTOR }} under the repo ${{ GITHUB_WORKSPACE }} "
+          echo "The user who triggered this workflow is: ${{ env.GITHUB_ACTOR }} under the repo ${{ env.GITHUB_WORKSPACE }} "
