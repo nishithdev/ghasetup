@@ -15,7 +15,7 @@ jobs:
       - name: Workflow
         run: |
           echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.GITHUB_REF_NAME }}"
-          echo "${{WEBHOOK_URL}}"
+          echo "${{ input.WEBHOOK_URL}}"
           
 #  teams_notify:
 #     runs-on: ubuntu-latest
