@@ -28,7 +28,7 @@ jobs:
           curl -H "Content-Type: application/json" -d '
           {
             "text": "Build failed for ${{ github.event.repository.name }} ${{github.workflow}} "             
-          }' ${{ secrets.WEBHOOK_URL }}
+          }' $WEBHOOK_URL
 
 
 
