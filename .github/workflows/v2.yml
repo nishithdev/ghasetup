@@ -7,7 +7,8 @@ on:
       - v2
   workflow_call:
   workflow_dispatch:
-
+env: 
+  WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
 jobs:
   
  stage_1:
@@ -28,9 +29,8 @@ jobs:
           curl -H "Content-Type: application/json" -d '
           {
             "text": "Build failed for ${{ github.event.repository.name }} ${{github.workflow}} "             
-          }' $WEBHOOK_URL
-        env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          }' ${{ WEBHOOK_URL }}
+  
 
 
 
