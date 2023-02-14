@@ -7,8 +7,6 @@ on:
       - v2
   workflow_call:
   workflow_dispatch:
-env: 
-  WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
 jobs:
   
  stage_1:
