@@ -29,6 +29,8 @@ jobs:
           {
             "text": "Build failed for ${{ github.event.repository.name }} ${{github.workflow}} "             
           }' $WEBHOOK_URL
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
 
 
