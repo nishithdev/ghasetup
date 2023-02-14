@@ -1,10 +1,10 @@
-name: Teams Notify
-run-name: v1 workflow
+name: Notify_Demo
+run-name: v2 workflow
 
 on:
   push:
     branches:
-      - v1
+      - v2
   workflow_call:
   workflow_dispatch:
 
@@ -13,40 +13,12 @@ jobs:
  stage_1:
   runs-on: ubuntu-latest
   steps:
-      - name: Print User who started workflow
-        run: |
-          echo "The user who started this workflow is: ${{github.actor}}"
- stage_2:
-  runs-on: ubuntu-latest
-  needs: stage_1
-  steps:
-      - name: Print workflow name
-        run: |
-          echo "The workflow is: ${{github.workflow}}"
- stage_3:
-  runs-on: ubuntu-latest
-  needs: stage_2
-  steps:
-      - name: Branch Name
-        run: |
-          echo "The branch is: ${{ github.GITHUB_REF_NAME }}"
- stage_4:
-  runs-on: ubuntu-latest
-  needs: stage_3
-  steps:
-      - name: Workflow
-        run: |
-          echo "The workflow is: ${{github.workflow}}"
- stage_5:
-  runs-on: ubuntu-latest
-  needs: stage_4
-  steps:
       - name: Workflow
         run: |
           echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.GITHUB_REF_NAME }}"
  notify_teams_failure:
   runs-on: ubuntu-latest
-  needs: stage_5
+  needs: stage_1
   if: failure()
   steps:
       - name: Workflow
