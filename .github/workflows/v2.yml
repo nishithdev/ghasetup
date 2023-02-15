@@ -20,7 +20,7 @@ jobs:
   runs-on: ubuntu-latest
   steps:
       - name: Workflow
-        run: echo "${{ input.secret-value}}"
+        run: echo "${{ inputs.secret-value}}"
           
 #  teams_notify:
 #     runs-on: ubuntu-latest
