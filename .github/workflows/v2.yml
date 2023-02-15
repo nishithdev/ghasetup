@@ -17,7 +17,7 @@ jobs:
   steps:
       - name: Workflow
         run: |
-          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  build number ${{ env.TAG } branch ${{ github.GITHUB_REF_NAME }}"
+          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  build number ${{ env.TAG }} branch ${{ github.GITHUB_REF_NAME }}"
 #  stage_2:
 #   runs-on: ubuntu-latest
 #   steps:
