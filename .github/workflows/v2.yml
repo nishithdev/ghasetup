@@ -15,7 +15,12 @@ jobs:
       - name: Workflow
         run: |
           echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.GITHUB_REF_NAME }}"
-          echo "${{ input.WEBHOOK_URL}}"
+ stage_2:
+  needs: stage_1
+  runs-on: ubuntu-latest
+  steps:
+      - name: Workflow
+        run: echo "${{ input.secret-value}}"
           
 #  teams_notify:
 #     runs-on: ubuntu-latest
