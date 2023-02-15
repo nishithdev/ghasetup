@@ -8,19 +8,27 @@ on:
   workflow_call:
   workflow_dispatch:
 jobs:
-  
- stage_1:
-  runs-on: ubuntu-latest
-  steps:
-      - name: Workflow
-        run: |
-          echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.GITHUB_REF_NAME }}"
- stage_2:
-  runs-on: ubuntu-latest
-  steps:
+ build:
+    runs-on: ubuntu-latest
+    steps:
       - name: Example step
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!"}' {{ inputs.webhook-url }}
+         run: echo "Param 1: ${{ inputs.param1 }}, Param 2: ${{ inputs.param2 }}"
+ 
+ 
+ 
+#  stage_1:
+#   runs-on: ubuntu-latest
+#   steps:
+#       - name: Workflow
+#         run: |
+#           echo "${{github.actor}} triggered ${{github.workflow}} for ${{ github.event.repository.name }} on  branch ${{ github.GITHUB_REF_NAME }}"
+#  stage_2:
+#   runs-on: ubuntu-latest
+#   steps:
+#       - name: Example step
+#         run: |
+#           curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!"}' {{ inputs.webhook-url }}
 
           
 #  teams_notify:
