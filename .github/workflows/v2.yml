@@ -20,7 +20,7 @@ jobs:
   steps:
       - name: Example step
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!"}' {{ webhook-url }}
+          curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!"}' {{ inputs.webhook-url }}
 
           
 #  teams_notify:
