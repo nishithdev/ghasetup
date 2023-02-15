@@ -7,15 +7,23 @@ on:
       - v2
   workflow_call:
   workflow_dispatch:
-jobs:
- build:
+# jobs:
+#  build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Example step
+#         run: |
+#          run: echo "Param 1: ${{ inputs.param1 }}, Param 2: ${{ inputs.param2 }}"
+ 
+  jobs:
+   build:
     runs-on: ubuntu-latest
     steps:
       - name: Example step
-        run: |
-         run: echo "Param 1: ${{ inputs.param1 }}, Param 2: ${{ inputs.param2 }}"
- 
- 
+        run: echo "${{ inputs.param1 }}"
+        env:
+          PARAM1: ${{ inputs.param1 }}
+          PARAM2: ${{ inputs.param2 }}
  
 #  stage_1:
 #   runs-on: ubuntu-latest
