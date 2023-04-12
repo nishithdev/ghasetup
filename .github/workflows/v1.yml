@@ -17,6 +17,7 @@ jobs:
  run_code:
   runs-on: ubuntu-latest
   steps:
+      - uses: actions/checkout@v2
       - name: Output
         run: |
           echo "The name is: ${{ env.JOB_CONFIG_JSON }}"
