@@ -11,7 +11,7 @@ on:
 
 
 env:
-  JOB_CONFIG_JSON: ${{inputs.JOB_CONFIG_JSON}}
+  JOB_CONFIG_JSON: ${{ inputs.JOB_CONFIG_JSON }}
 jobs:
   
  run_code:
@@ -19,4 +19,4 @@ jobs:
   steps:
       - name: Output
         run: |
-          echo "The user who started this workflow is: ${{env.JOB_CONFIG_JSON}}"
+          echo "The name is: ${{ env.JOB_CONFIG_JSON }}"
